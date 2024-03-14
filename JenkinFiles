@@ -11,7 +11,20 @@ pipeline {
             steps {
                 echo 'Running unit tests'
                 echo 'Running integration tests'
-            }
+            } 
+post{
+success{
+mail to: 'samridhmahajan1@gmail.com',
+subject: 'Unit and integration test running',
+body: 'Unit and integration test successfully passed'
+}
+failure{
+mail to: 'samridhmahajan1@gmail.com',
+subject: 'Unit and integration test run failed',
+body: 'Unit and integration test failed'
+}
+
+}
         }
         stage('Code Analysis') {
             steps {
