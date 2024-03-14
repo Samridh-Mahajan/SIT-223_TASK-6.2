@@ -35,6 +35,19 @@ body: 'Unit and integration test failed'
             steps {
                 echo 'Performing security scan'
             }
+post{
+success{
+mail to: 'samridhmahajan1@gmail.com',
+subject: 'Security test running',
+body: 'Security test successfully passed'
+}
+failure{
+mail to: 'samridhmahajan1@gmail.com',
+subject: 'Security test run failed',
+body: 'Security test failed'
+}
+
+}
         }
         stage('Deploy to Staging') {
             steps {
